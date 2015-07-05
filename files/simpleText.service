@@ -1,0 +1,11 @@
+[Unit]
+Description=Simple HTTP Daemon Server
+After=systemd-journald.service
+After=network.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/simpleText
+
+[Install]
+WantedBy=multi-user.target
