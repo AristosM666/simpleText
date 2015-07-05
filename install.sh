@@ -15,9 +15,9 @@ fi
 
 make > /dev/null
 
-cp -afr resources/* /etc/simpleText.d/
+cp -afr files/* /etc/simpleText.d/
 cp -f simpleText /usr/bin/simpleText
-cp -f resources/simpleText.service /etc/systemd/system/simpleText.service
+cp -f files/simpleText.service /etc/systemd/system/simpleText.service
 
 chmod 600 /etc/simpleText.d/simpleText.cfg
 
