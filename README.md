@@ -3,7 +3,7 @@ Simple HTTP Server for Unix Platforms.
 
 
 [Install]
-1. install lib-magic and lib-config
+1. install lib-magic and lib-config<br>
 1-b. Optionaly install and configure a syslog daemon to listen on facility 'local0'
 2. download source
 3. run the makefile ($ make)
