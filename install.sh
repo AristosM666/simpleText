@@ -15,6 +15,7 @@ fi
 
 make > /dev/null
 
+mkdir /etc/simpleText.d/
 cp -afr files/* /etc/simpleText.d/
 cp -f simpleText /usr/bin/simpleText
 cp -f files/simpleText.service /etc/systemd/system/simpleText.service
