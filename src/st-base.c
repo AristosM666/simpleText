@@ -53,9 +53,9 @@ int main (int argc, char * argv[])
 
 	/* make daemon and start logging */
 	status = init_daemon (server, o_stngs);
-  if (status == 1)
+	if (status == 0)
 		return EXIT_SUCCESS; /* parent returns success */
-	else if (status == -1)
+	else if (status == 1)
 		return EXIT_FAILURE; /* parent returns failure */
 
 	syslog (LOG_NOTICE, "[PID: %u, SID: %u] > %s started..",
@@ -141,10 +141,10 @@ static int start_listen (unsigned short port)
 			syslog (LOG_INFO, "Port %hu is already in use switching to dynamic port", dflt_port);
 
 		/* Set dynamic port */
-		laddr.sin_port = htons (0);
-	errno = 0; /* Reset errno */
+		laddr.sin_port = htons (-1);
+		errno = 0; /* Reset errno */
 	}
-	while (errno != EADDRINUSE)
+	while (errno != EADDRINUSE);
 	syslog (LOG_DEBUG, "Server socket binded to address localhost:%hu", ntohs(laddr.sin_port));
 
 	/* listen for connections */
